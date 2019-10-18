@@ -10,7 +10,7 @@ ES_PORT = os.environ["ELASTICSEARCH_PORT"]
 
 def main():
     http = urllib3.PoolManager()
-    r = http.request("GET", f"{ES_HOST}:{ES_PORT}")
+    r = http.request("GET", f"http://{ES_HOST}:{ES_PORT}")
     assert r.status == 200
     data = json.loads(r.data.decode("utf-8"))
     print(f"data = {data}")
